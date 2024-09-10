@@ -222,7 +222,7 @@ void create_screen_main() {
         {
             lv_obj_t *obj = lv_dropdown_create(parent_obj);
             objects.obj3 = obj;
-            lv_obj_set_pos(obj, 273, 90);
+            lv_obj_set_pos(obj, 265, 80);
             lv_obj_set_size(obj, 150, LV_SIZE_CONTENT);
             lv_dropdown_set_options(obj, "Option 1\nOption 2\nOption 3");
             lv_obj_add_event_cb(obj, event_handler_cb_main_obj3, LV_EVENT_ALL, flowState);
@@ -245,6 +245,7 @@ void create_screen_main() {
             objects.obj5 = obj;
             lv_obj_set_pos(obj, 18, 181);
             lv_obj_set_size(obj, 150, 10);
+            lv_slider_set_range(obj, 10, 99);
             lv_obj_add_event_cb(obj, event_handler_cb_main_obj5, LV_EVENT_ALL, flowState);
         }
         {
@@ -267,7 +268,7 @@ void create_screen_main() {
         }
         {
             lv_obj_t *obj = lv_textarea_create(parent_obj);
-            lv_obj_set_pos(obj, 549, 20);
+            lv_obj_set_pos(obj, 273, 135);
             lv_obj_set_size(obj, 150, 70);
             lv_textarea_set_max_length(obj, 128);
             lv_textarea_set_text(obj, "青岛众瑞");
@@ -278,8 +279,22 @@ void create_screen_main() {
             // lv_lottie
             lv_obj_t *obj = lv_lottie_create(parent_obj);
             objects.lv_lottie = obj;
-            lv_obj_set_pos(obj, 712, 16);
+            lv_obj_set_pos(obj, 439, 137);
             lv_obj_set_size(obj, 64, 64);
+        }
+        {
+            // qr_code_parent
+            lv_obj_t *obj = lv_obj_create(parent_obj);
+            objects.qr_code_parent = obj;
+            lv_obj_set_pos(obj, 580, 30);
+            lv_obj_set_size(obj, 150, 150);
+            lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_width(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_radius(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
     }
 }
@@ -360,8 +375,8 @@ void create_screen_home() {
             // lv_input
             lv_obj_t *obj = lv_keyboard_create(parent_obj);
             objects.lv_input = obj;
-            lv_obj_set_pos(obj, 0, 281);
-            lv_obj_set_size(obj, 800, 199);
+            lv_obj_set_pos(obj, 0, 253);
+            lv_obj_set_size(obj, 800, 227);
             lv_obj_set_style_align(obj, LV_ALIGN_DEFAULT, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
         {
@@ -1054,6 +1069,20 @@ void init_table()
     lv_obj_add_flag(objects.table, LV_OBJ_FLAG_SEND_DRAW_TASK_EVENTS);
 }
 
+void init_qr_code()
+{
+    lv_color_t bg_color = lv_palette_lighten(LV_PALETTE_LIGHT_BLUE, 5);
+    lv_color_t fg_color = lv_palette_darken(LV_PALETTE_BLUE, 4);
+
+    lv_obj_t *qr = lv_qrcode_create(objects.qr_code_parent);
+    lv_obj_set_size(qr, LV_PCT(100), LV_PCT(100));
+    lv_qrcode_set_dark_color(qr, fg_color);
+    lv_qrcode_set_light_color(qr, bg_color);
+
+    const char *data = "http://junray.com";
+    lv_qrcode_update(qr, data, strlen(data));
+}
+
 void create_screens() {
     lv_disp_t *dispp = lv_disp_get_default();
     lv_theme_t *theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), true, &ui_font_siyuan);
@@ -1067,6 +1096,8 @@ void create_screens() {
     init_all_chart();
     init_list();
     init_table();
+    init_lottie();
+    init_qr_code();
 }
 
 typedef void (*tick_screen_func_t)();

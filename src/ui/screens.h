@@ -36,6 +36,7 @@ typedef struct _objects_t {
     lv_obj_t *obj7;
     lv_obj_t *obj8;
     lv_obj_t *obj9;
+    lv_obj_t *qr_code_parent;
     lv_obj_t *table;
 } objects_t;
 
