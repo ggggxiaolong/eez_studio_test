@@ -10,6 +10,8 @@
         "images.h": "c",
         "styles.h": "c",
         "fonts.h": "c",
-        "actions.h": "c"
+        "actions.h": "c",
+        "sqlite3.h": "c",
+        "stdio.h": "c"
     }
 }

@@ -1,7 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[test.eez-project]:/userPages/2",
-    "selectedFontObject": "[test.eez-project]:/fonts/-1",
+    "selectedUserPageObject": "[test.eez-project]:/userPages/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -193,10 +192,10 @@
                 {
                   "type": "tab",
                   "id": "#0b05997f-2d1b-43a8-aa49-50f66b58f70c",
-                  "name": "meter",
+                  "name": "Main",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[test.eez-project]:/userPages/2",
+                    "objectPath": "[test.eez-project]:/userPages/0",
                     "permanent": false
                   },
                   "icon": {
@@ -966,6 +965,7 @@
     "[test.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
+          "0": {},
           "2": {},
           "5": {}
         }

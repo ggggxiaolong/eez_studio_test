@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "src/ui/ui.h"
+#include <sqlite3.h>
 
 int main(void)
 {
@@ -26,6 +27,7 @@ int main(void)
     // lv_demo_widgets();
     // lv_demo_widgets_start_slideshow();
     ui_init();
+    printf("%s\n", sqlite3_libversion());
 
     /*Handle LVGL tasks*/
     while(1) {
