@@ -1,6 +1,5 @@
 {
     "files.associations": {
-        "*.txt": "cmake",
         "lvgl.h": "c",
         "ui.h": "c",
         "lv_demos.h": "c",
@@ -12,6 +11,9 @@
         "fonts.h": "c",
         "actions.h": "c",
         "sqlite3.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "mqttclient.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c"
     }
 }
