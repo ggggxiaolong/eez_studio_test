@@ -11,6 +11,7 @@ typedef struct _objects_t {
     lv_obj_t *main;
     lv_obj_t *home;
     lv_obj_t *meter;
+    lv_obj_t *tabscreen;
     lv_obj_t *address;
     lv_obj_t *bar_chart;
     lv_obj_t *bar_chart_container;
@@ -28,6 +29,8 @@ typedef struct _objects_t {
     lv_obj_t *obj1;
     lv_obj_t *obj10;
     lv_obj_t *obj11;
+    lv_obj_t *obj12;
+    lv_obj_t *obj13;
     lv_obj_t *obj2;
     lv_obj_t *obj3;
     lv_obj_t *obj4;
@@ -46,6 +49,7 @@ enum ScreensEnum {
     SCREEN_ID_MAIN = 1,
     SCREEN_ID_HOME = 2,
     SCREEN_ID_METER = 3,
+    SCREEN_ID_TABSCREEN = 4,
 };
 
 void create_screen_main();
@@ -56,6 +60,9 @@ void tick_screen_home();
 
 void create_screen_meter();
 void tick_screen_meter();
+
+void create_screen_tabscreen();
+void tick_screen_tabscreen();
 
 void init_keyboard();
 static void hook_division_lines(lv_event_t * e);
